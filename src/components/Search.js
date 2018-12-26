@@ -30,7 +30,7 @@ class Search extends React.Component {
       <form className={this.props.formType} onSubmit={this.handleSubmit} >
           <input 
             className='search'
-            placeholder='Mobile, Alabama'
+            placeholder='Las Vegas, Nevada'
             type='text'
             value={this.state.location}
             autoComplete='off'

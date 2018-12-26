@@ -1,23 +1,49 @@
 import axios from 'axios';
 
-let id  = 'e3f00766f0f14117d085486ead35eb5b';
+let _baseURL = 'https://api.openweathermap.org/data/2.5/';
+let _APIKEY = 'b714ec74bbab5650795063cb0fdf5fbe';
 
-function currentWeather(city) {
-  return window.encodeURI('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&type=accurate&APPID=' + id);
+function prepRouteParams (queryStringData) {
+  return Object.keys(queryStringData)
+    .map(function (key) {
+      return key + '=' + encodeURIComponent(queryStringData[key]);
+    }).join('&')
 }
-function fiveDayWeather(city) {
-  return window.encodeURI('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&type=accurate&APPID=' + id + '&cnt=5');
+
+function prepUrl (type, queryStringData) {
+  return _baseURL + type + '?' + prepRouteParams(queryStringData);
+}
+
+function getQueryStringData (city) {
+  return {
+    q: city,
+    type: 'accurate',
+    APPID: _APIKEY,
+    cnt: 5
+  }
+}
+
+function currentWeather (city) {
+  var queryStringData = getQueryStringData(city);
+  var url = prepUrl('weather', queryStringData)
+
+  return axios.get(url)
+    .then(function (currentWeatherData) {
+      return currentWeatherData.data
+    })
+}
+
+function fiveDayWeather (city) {
+  var queryStringData = getQueryStringData(city);
+  var url = prepUrl('forecast/daily', queryStringData)
+
+  return axios.get(url)
+    .then(function (forecastData) {
+      return forecastData.data
+    })
 }
 
 export default {
-  fetchWeather(city) {
-    let currentURI = currentWeather(city);
-    
-
-    return axios.get(currentURI)
-      .then(function(response) {
-        // return response;
-        return response.data.list[0];
-      })
-  }
-}
+  fiveDayWeather: fiveDayWeather,
+  currentWeather: currentWeather
+};

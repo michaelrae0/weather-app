@@ -9,12 +9,12 @@ let Router = BrowserRouter;
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className='container' >
           <Nav />
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/forecast' component={Forecast} />
+          <Route exact path='/' component={Home} />
+          <Route path='/forecast' component={Forecast} />
           </Switch>
         </div>
       </Router>

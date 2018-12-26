@@ -1,15 +1,17 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import logo from '../weather-icons/03d.svg'
 
 function Icon(props) {
-  let data = props.data
-  let imgPath = '../../weather-icons/' + data.weather[0].icon + '.svg'
-  
-  let dateStr = dateFormat(data.dt, "dddd, mmmm dS")
+  // let data = props.data
+  // let imgPath = 'weather-icons/' + data.weather[0].icon + '.svg'
+  let now = new Date();
+  console.log(now)
+  let dateStr = dateFormat(now, "dddd, mmm dS")
 
   return (
     <div className="day-container" >
-      <img className='icon' src={imgPath} alt='weather icon' />
+      <img className='icon' src={logo} alt='weather icon' />
       <h2 className='subheader' >{dateStr}</h2>
     </div>
   )
