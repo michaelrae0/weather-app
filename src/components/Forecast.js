@@ -3,7 +3,6 @@ import queryString from  'query-string';
 
 import api from '../util/api.js';
 import Loading from './Loading.js';
-import Day from './Day.js';
 import Week from './Week.js';
 
 class Forecast extends React.Component {
@@ -17,10 +16,11 @@ class Forecast extends React.Component {
       data: null
     }
   }
+  
   apiRequest = city => {
     api.fiveDayWeather(city)
       .then(function(data) {
-        console.log(data)
+        // console.log(data);
         this.setState({ 
           isLoading: false,
           city,
@@ -28,19 +28,18 @@ class Forecast extends React.Component {
         })
       }.bind(this));
   } 
-
-  componentDidMount = () => {
-    let location = queryString.parse(this.props.location.search).city;
+  getCity = URI => {
+    let location = queryString.parse(URI).city;
     let city = location.split(',')[0]
-    city = city[0].toUpperCase() + city.slice(1, city.length);
+    return city[0].toUpperCase() + city.slice(1, city.length);
 
+  }
+  componentDidMount = () => {
+    let city = this.getCity(this.props.location.search);
     this.apiRequest(city);
   }
   componentWillReceiveProps = nextProps => {
-    let location = queryString.parse(nextProps.location.search).city;
-    let city = location.split(',')[0]
-    city = city[0].toUpperCase() + city.slice(1, city.length);
-
+    let city = this.getCity(nextProps.location.search);
     this.apiRequest(city);
   }
 
@@ -52,7 +51,7 @@ class Forecast extends React.Component {
         {this.state.isLoading && <Loading />}
 
         {data &&
-          <Week data={data} city={this.state.city} />
+          <Week data={data} city={this.state.city} history={this.props.history} />
         }
       </div>
     )

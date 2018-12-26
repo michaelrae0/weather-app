@@ -7,6 +7,15 @@ body, html, #root, .container {
   width: 100%;
   height: 100%;
 }
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
 
 /* Navbar */
 .nav {
@@ -40,7 +49,6 @@ body, html, #root, .container {
   background-size: cover;
   flex-direction: column;
   background-image: url(./pattern.svg);
-  
 }
 .home-container, .home-form, .nav-form {
   display: flex;
@@ -140,19 +148,12 @@ p {
 
 .week-container {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 50px auto;
-}
-.day-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 35px;
 }
 .week-header {
   font-size: 65px;
@@ -160,7 +161,7 @@ p {
   font-weight: 100;
   text-align: center;
 }
-.day-subheader {
+.subheader {
   font-size: 30px;
   color: #333;
   font-weight: 100;

@@ -1,28 +1,26 @@
 import React from 'react';
-import dateFormat from 'dateformat';
-let images = require.context('../weather-icons', true);
+import Icon from './Icon.js';
 
 class Week extends React.Component {
+  handleClick = dataItem => {
+    console.log('yes')
+    let value = window.encodeURI(this.props.city);
+    let redirectURI = '/details/' + value;
+    
+    this.props.history.push({
+      pathname: redirectURI,
+      state: dataItem
+    })
+  }
+  
   render() {
     return (
       <div>
         <h1 className='week-header' >{this.props.city}</h1>
         <div className='week-container' >
-          {this.props.data.list.map(function(value, i) {          
-            let iconName = `./${value.weather[0].icon}.svg`;
-            let icon = images(iconName);
-            
-            let date = new Date(value.dt * 1000); // returns time in seconds (unix)
-            let dateStr = dateFormat(date, "yyyy, mmm dS")
-            console.log(dateStr);
-
-            return (
-              <div key={value.pressure + i} className="day-container"  >
-                <img className='icon' src={icon} alt='weather icon' />
-                <h2 className='day-subheader' >{dateStr}</h2>
-              </div>
-            )
-          })}
+          {this.props.data.list.map(function(dataItem) {          
+            return <Icon day={dataItem} onClick={this.handleClick.bind(this, dataItem)} key={dataItem.pressure} />;
+          }, this)}
         </div>
       </div>
     )

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './Nav.js';
 import Home from './Home.js';
 import Forecast from './Forecast.js';
+import Details from './Details.js';
 
 let Router = BrowserRouter;
 
@@ -13,8 +14,9 @@ class App extends React.Component {
         <div className='container' >
           <Nav />
           <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/forecast' component={Forecast} />
+            <Route exact path='/' component={Home} />
+            <Route path='/forecast' component={Forecast} />
+            <Route path='/details' component={Details} />
           </Switch>
         </div>
       </Router>
