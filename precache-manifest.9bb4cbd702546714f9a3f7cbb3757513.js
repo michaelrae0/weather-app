@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "41e025cc0c87b9852be2",
-    "url": "/weather-app/static/css/main.6cd0a1c7.chunk.css"
+    "revision": "285fe46c55d5cf483703",
+    "url": "/weather-app/static/css/main.bf72feab.chunk.css"
   },
   {
-    "revision": "41e025cc0c87b9852be2",
-    "url": "/weather-app/static/js/main.41e025cc.chunk.js"
+    "revision": "285fe46c55d5cf483703",
+    "url": "/weather-app/static/js/main.285fe46c.chunk.js"
   },
   {
-    "revision": "36af17c9c8d6a4869d77",
-    "url": "/weather-app/static/js/1.36af17c9.chunk.js"
+    "revision": "dbae881a7dafce5707ae",
+    "url": "/weather-app/static/js/1.dbae881a.chunk.js"
   },
   {
     "revision": "2be6f7590b391fa0dcfc",
     "url": "/weather-app/static/js/runtime~main.2be6f759.js"
   },
   {
-    "revision": "e78b561561e0911af1eae4c8c3de25c4",
-    "url": "/weather-app/static/media/pattern.e78b5615.svg"
+    "revision": "eacb14902cc6ebe521364d92b6253b9d",
+    "url": "/weather-app/static/media/blue-rain.eacb1490.jpg"
   },
   {
     "revision": "d37bc50c474fc08f6bd1d9a67c6355bd",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/weather-app/static/media/50n.dc59f73d.svg"
   },
   {
-    "revision": "b795f3a6c39136cc15a47f51c78cf64a",
+    "revision": "327a228d85050de774e97c2863242581",
     "url": "/weather-app/index.html"
   }
 ];
