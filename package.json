@@ -12,8 +12,11 @@
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.7.0",
+    "react-fittext": "^1.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.2"
+    "react-scale-text": "^1.2.2",
+    "react-scripts": "2.1.2",
+    "react-textfit": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
