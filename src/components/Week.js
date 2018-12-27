@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './Icon.js';
+import funcs from '../util/funcs.js'
 
 class Week extends React.Component {
   handleClick = dataItem => {
@@ -15,11 +16,19 @@ class Week extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='week' >
         <h1 className='week-header' >{this.props.city}</h1>
         <div className='week-container' >
-          {this.props.data.list.map(function(dataItem) {          
-            return <Icon day={dataItem} onClick={this.handleClick.bind(this, dataItem)} key={dataItem.pressure} />;
+          {this.props.data.list.map(function(day) {          
+            return (
+              <div className='day-container' key={day.pressure}>
+                <Icon day={day} onClick={this.handleClick.bind(this, day)} />
+                <div className='temp-container' >
+                  <div className='max-temp' >{funcs.toFahrenheit(day.temp.max)}&#176;</div>
+                  <div className='min-temp' >{funcs.toFahrenheit(day.temp.min)}&#176;</div>
+                </div>
+              </div>
+            )
           }, this)}
         </div>
       </div>

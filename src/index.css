@@ -2,8 +2,12 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   margin: 0 auto;
   display: block;
+  background-image: url(./images/blue-rain.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-body, html, #root, .container {
+body, html, #root {
   width: 100%;
   height: 100%;
 }
@@ -20,11 +24,12 @@ h2 {
 /* Navbar */
 .nav {
   display: flex;
-  background-color: rgba(252,90,44,.89);
+  background-color: rgba(0,0,0,.5);
   height: 90px;
   justify-content: space-between;
   text-align: center;
   color: #fff;
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav h1 {
@@ -44,11 +49,9 @@ h2 {
 
 /* Homepage */
 .home-container {
-  height: 100%;
+  height: 90%;
   width: 100%;
-  background-size: cover;
   flex-direction: column;
-  background-image: url(./pattern.svg);
 }
 .home-container, .home-form, .nav-form {
   display: flex;
@@ -111,31 +114,88 @@ h2 {
 }
 
 /* Forecast */
+.week-header {
+  font-size: 65px;
+  color: #333;
+  font-weight: 100;
+  text-align: center;
+}
+.week-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 20px;
+}
+
 .day-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 35px;
+  margin: 10px 50px 30px;
 }
 
+.icon-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.icon {
+  margin-top: -10px;
+  height: 100px;
+}
+.icon-detail {
+  height: 140px;
+  margin-bottom: -20px;
+}
+.subheader {
+  font-size: 30px;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+}
+.subheader-detail {
+  font-size: 40px;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+}
+.temp-container {
+  display: flex;
+  margin-top: 10px;
+  color: white;
+  font-weight: 300;
+}
+.max-temp {
+  font-size: 240%;
+  margin : 0 8px;
+}
+.min-temp {
+  font-size: 150%;
+  margin-top: 15px
+}
+
+.day-detail-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0 0 1px;
+  border-radius: 20px;
+}
 .description-container {
   text-align: center;
   font-size: 34px;
   font-weight: 100;
   max-width: 400px;
   margin: 0 auto;
-  text-align: center;
-}
-
-.icon {
-  height: 130px;
-}
-
-.subheader {
-  font-size: 40px;
-  color: #333;
-  font-weight: 100;
+  color: white;
 }
 
 p {
@@ -144,28 +204,4 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-}
-
-.week-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 50px auto;
-}
-.week-header {
-  font-size: 65px;
-  color: #333;
-  font-weight: 100;
-  text-align: center;
-}
-.subheader {
-  font-size: 30px;
-  color: #333;
-  font-weight: 100;
-}
-.icon {
-  height: 130px;
 }

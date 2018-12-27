@@ -29,7 +29,7 @@ class Loading extends React.Component {
 
   render() {
     return (
-      <div>{this.state.str}</div>
+      <div className='week-header' >{this.state.str}</div>
     )
   }
 }
