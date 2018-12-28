@@ -49,10 +49,15 @@ h2 {
 
 /* Homepage */
 .home-container {
-  height: 90%;
-  width: 100%;
+  width: 450px;
+  max-width: 80%;
   flex-direction: column;
-  margin: 0 auto; 
+  background-color: rgba(30,30,30,0.7);
+  padding: 15px 15px 10px;
+  /* padding-bottom: -20px; */
+  margin: 0 auto;
+  margin-top: 10%;
+  border-radius: 10px;
 }
 .home-container, .home-form, .nav-form {
   display: flex;
@@ -62,8 +67,9 @@ h2 {
 }
 .header {
   font-size: 45px;
-  color: #222;
+  color: white;
   font-weight: 100;
+  margin: -10px 0 10px; 
 }
 
 /* Search Forms */
@@ -93,7 +99,7 @@ h2 {
 .btn {
   display: inline-block;
   padding: 6px 12px;
-  margin: 10px;
+  margin: 0 15px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42857143;
@@ -110,6 +116,12 @@ h2 {
 }
 .home-form {
   flex-direction: column;
+}
+.home-form > * {
+  margin: 10px;
+}
+.home-form.search {
+  width: 120%;
 }
 
 
@@ -176,7 +188,7 @@ h2 {
 /* Details Page */
 .day-detail-container {
   background-color: rgba(30, 30, 30, 0.6);
-  max-width: 30%;
+  max-width: 40%;
   margin: 0 auto;
   border-radius: 15px;
   padding-bottom: 2%;
@@ -197,7 +209,6 @@ h2 {
 .description-container {
   text-align: center;
   font-weight: 100;
-  /* max-width: 400px; */
   margin: 0 auto;
   color: white;
 }

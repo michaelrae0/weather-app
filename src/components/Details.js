@@ -12,10 +12,10 @@ class Details extends React.Component {
     }
   }
   
+  // Font sizings for mobile/changing browser size
   calculateFontSize = () => {
-    let width = document.documentElement.clientWidth * 0.3;
+    let width = document.documentElement.clientWidth * 0.4;
     let fontSize = width/15;
-    console.log('hello')
 
     return fontSize
   }

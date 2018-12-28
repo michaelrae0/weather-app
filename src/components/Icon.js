@@ -6,35 +6,45 @@ class Icon extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state= {
-      fontSize: this.calculateFontSize()
+    this.state = {
+      fontSize: this.updateFont()
     }
   }
   
+  // Font sizings for mobile/changing browser size
   calculateDetailedFontSize = () => {
-    let width = document.documentElement.clientWidth * 0.3;
-    let fontSize = width/12;
+    let width = document.documentElement.clientWidth * 0.4;
+    let fontSize = width/10;
 
     return fontSize
   }
-
   calculateFontSize = () => {
     let width = document.documentElement.clientWidth * 0.85 * 0.2;
     let fontSize = width/6;
 
     return fontSize
   }
+  updateFont = () => {
+    let updatedSize = '';
+    
+    if (this.props.detailed) {
+      updatedSize = this.calculateDetailedFontSize()
+    }
+    else {
+      updatedSize = this.calculateFontSize();
+    }
+
+    return updatedSize;
+  }
 
   componentDidMount = () => {
-    window.addEventListener("resize", function() {
-      let updatedSize = this.calculateFontSize();
-      if (this.props.detailed) {
-        updatedSize = this.calculateDetailedFontSize()
-      }
+    window.addEventListener("resize", function () {
+      let updatedSize = this.updateFont();
+
       this.setState({
         fontSize: updatedSize
       })
-    }.bind(this));
+    }.bind(this))
   }
 
   render() {
