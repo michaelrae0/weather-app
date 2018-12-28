@@ -18,7 +18,7 @@ class Nav extends React.Component {
         <Link className='link' to='/' ><h1>Weather</h1></Link>
         <Search formType='nav-form' onSubmit={this.handleSubmit} />
       </div>
-    )
+    );
   }
 }
 

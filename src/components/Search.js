@@ -14,7 +14,7 @@ class Search extends React.Component {
 
     this.setState({
       location: value
-    })
+    });
   }
   handleSubmit = event => {
     event.preventDefault();
@@ -44,7 +44,7 @@ class Search extends React.Component {
             Get Weather
           </button>
         </form>
-    )
+    );
   }
 }
 

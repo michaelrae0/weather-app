@@ -14,9 +14,10 @@ class Forecast extends React.Component {
       isLoading: true,
       loadingStr: 'loading.',
       data: null
-    }
+    };
   }
   
+  // Async request for five day, daily weather
   apiRequest = city => {
     api.fiveDayWeather(city)
       .then(function(data) {
@@ -28,12 +29,14 @@ class Forecast extends React.Component {
         })
       }.bind(this));
   } 
+  // Extracts city name from the URI sent by Search.js
   getCity = URI => {
     let location = queryString.parse(URI).city;
-    let city = location.split(',')[0]
-    return city[0].toUpperCase() + city.slice(1, city.length);
+    let city = location.split(',')[0];
 
+    return city[0].toUpperCase() + city.slice(1, city.length);
   }
+
   componentDidMount = () => {
     let city = this.getCity(this.props.location.search);
     this.apiRequest(city);
@@ -54,7 +57,7 @@ class Forecast extends React.Component {
           <Week data={data} city={this.state.city} history={this.props.history} />
         }
       </div>
-    )
+    );
   }
 }
 

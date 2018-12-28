@@ -1,5 +1,6 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import funcs from '../util/funcs.js';
 let images = require.context('../images/weather-icons', true);
 
 class Icon extends React.Component {
@@ -8,43 +9,32 @@ class Icon extends React.Component {
 
     this.state = {
       fontSize: this.updateFont()
-    }
+    };
   }
   
-  // Font sizings for mobile/changing browser size
-  calculateDetailedFontSize = () => {
-    let width = document.documentElement.clientWidth * 0.4;
-    let fontSize = width/10;
-
-    return fontSize
-  }
-  calculateFontSize = () => {
-    let width = document.documentElement.clientWidth * 0.85 * 0.2;
-    let fontSize = width/6;
-
-    return fontSize
-  }
+  // Checks if its for Details.js, then calculates size
   updateFont = () => {
     let updatedSize = '';
     
     if (this.props.detailed) {
-      updatedSize = this.calculateDetailedFontSize()
+      updatedSize = funcs.calcFontSize(0.4, 1/10);
     }
     else {
-      updatedSize = this.calculateFontSize();
+      updatedSize = funcs.calcFontSize(0.85 * 0.2, 1/6);
     }
 
     return updatedSize;
   }
 
   componentDidMount = () => {
+    // Resizing event listener: changes font size when window size changes
     window.addEventListener("resize", function () {
       let updatedSize = this.updateFont();
 
       this.setState({
         fontSize: updatedSize
       })
-    }.bind(this))
+    }.bind(this));
   }
 
   render() {
@@ -72,7 +62,7 @@ class Icon extends React.Component {
         <p className={subheaderClass} style={{ fontSize: this.state.fontSize }} >{dateStr}</p>
         <img className={iconClass} src={icon} alt='weather icon' />
       </div>
-    )
+    );
   }
 }
 

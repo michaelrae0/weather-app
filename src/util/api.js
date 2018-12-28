@@ -7,7 +7,7 @@ function prepRouteParams (queryStringData) {
   return Object.keys(queryStringData)
     .map(function (key) {
       return key + '=' + encodeURIComponent(queryStringData[key]);
-    }).join('&')
+    }).join('&');
 }
 
 function prepUrl (type, queryStringData) {
@@ -20,27 +20,27 @@ function getQueryStringData (city) {
     type: 'accurate',
     APPID: _APIKEY,
     cnt: 5
-  }
+  };
 }
 
 function currentWeather (city) {
   var queryStringData = getQueryStringData(city);
-  var url = prepUrl('weather', queryStringData)
+  var url = prepUrl('weather', queryStringData);
 
   return axios.get(url)
     .then(function (currentWeatherData) {
-      return currentWeatherData.data
-    })
+      return currentWeatherData.data;
+    });
 }
 
 function fiveDayWeather (city) {
   var queryStringData = getQueryStringData(city);
-  var url = prepUrl('forecast/daily', queryStringData)
+  var url = prepUrl('forecast/daily', queryStringData);
 
   return axios.get(url)
     .then(function (forecastData) {
-      return forecastData.data
-    })
+      return forecastData.data;
+    });
 }
 
 export default {

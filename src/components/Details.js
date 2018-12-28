@@ -8,31 +8,24 @@ class Details extends React.Component {
     super(props);
 
     this.state= {
-      fontSize: this.calculateFontSize()
-    }
-  }
-  
-  // Font sizings for mobile/changing browser size
-  calculateFontSize = () => {
-    let width = document.documentElement.clientWidth * 0.4;
-    let fontSize = width/15;
-
-    return fontSize
+      fontSize: funcs.calcFontSize(0.4, 1/15)
+    };
   }
 
   componentDidMount = () => {
+    // Resizing event listener: changes font size when window size changes
     window.addEventListener("resize", function() {
-      let updatedSize = this.calculateFontSize();
+      let updatedSize = funcs.calcFontSize(0.4, 1/15);
 
       this.setState({
         fontSize: updatedSize
-      })
+      });
     }.bind(this));
   }
   
   render() {
     let day = this.props.location.state;
-    let description = changeCase.titleCase(day.weather[0].description)
+    let description = changeCase.titleCase(day.weather[0].description);
 
     return(
       <div className='day-detail-container'>
@@ -46,7 +39,7 @@ class Details extends React.Component {
           <p>Humidity: {day.humidity}%</p>
         </div>       
       </div>
-    )
+    );
   }
 }
 

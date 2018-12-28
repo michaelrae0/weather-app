@@ -7,16 +7,16 @@ class Home extends React.Component {
 
     this.state = {
       city: ''
-    }
+    };
   }
   
   handleSubmit = (event, location) => {
-    event.preventDefault()
+    event.preventDefault();
 
     let value = window.encodeURI(location);
-    let redirectURI = '/forecast?city=' + value
+    let redirectURI = '/forecast?city=' + value;
     
-    this.props.history.push(redirectURI)
+    this.props.history.push(redirectURI);
   }
 
   render() {
@@ -28,7 +28,7 @@ class Home extends React.Component {
           onSubmit={this.handleSubmit}
         />
       </div>
-    )
+    );
   }
 }
 
