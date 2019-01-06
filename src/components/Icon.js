@@ -44,6 +44,7 @@ class Icon extends React.Component {
     let date = new Date(this.props.day.dt * 1000);
     let dateStr = '';
 
+    // Changes on which component Icon is called from
     let iconClass = '';
     let subheaderClass = '';
     if (this.props.detailed) {
