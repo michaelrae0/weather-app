@@ -2,6 +2,7 @@ import React from 'react';
 import changeCase from 'change-case';
 import Icon from './Icon.js';
 import funcs from '../util/funcs.js';
+import mobile from 'is-mobile';
 
 class Details extends React.Component {
   constructor(props) {
@@ -15,7 +16,13 @@ class Details extends React.Component {
   componentDidMount = () => {
     // Resizing event listener: changes font size when window size changes
     window.addEventListener("resize", function() {
-      let updatedSize = funcs.calcFontSize(0.4, 1/15);
+      let maxWidth = 0.3;
+
+      if (mobile()) {
+        maxWidth = 0.4
+      }
+
+      let updatedSize = funcs.calcFontSize(maxWidth, 1/15);
 
       this.setState({
         fontSize: updatedSize
@@ -27,8 +34,25 @@ class Details extends React.Component {
     let day = this.props.location.state;
     let description = changeCase.titleCase(day.weather[0].description);
 
+    let radius,
+        maxWidth;
+    // Change appearance if on mobile
+    if (mobile()) {
+      radius = 15;
+      maxWidth = 40;
+    } else {
+      radius = 0;
+      maxWidth = 30;
+    }
+
     return(
-      <div className='day-detail-container'>
+      <div 
+        className='day-detail-container' 
+        style={{
+          borderRadius: radius,
+          maxWidth: maxWidth + '%'
+        }}
+      >
         <Icon day={day} detailed={true} />
         
         <div className='description-container' style={{ fontSize: this.state.fontSize }}>

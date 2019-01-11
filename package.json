@@ -8,6 +8,7 @@
     "change-case": "^3.0.2",
     "dateformat": "^3.0.3",
     "gh-pages": "^2.0.1",
+    "is-mobile": "^2.0.0",
     "query-string": "^6.2.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",

@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from './Icon.js';
 import funcs from '../util/funcs.js'
+import mobile from 'is-mobile';
 
 class Week extends React.Component {
   constructor(props) {
@@ -43,10 +44,15 @@ class Week extends React.Component {
     // Lines up the high and low temps
     let margin = this.state.maxFontSize - this.state.minFontSize;
 
+    let radius = 0;
+    if (mobile()) {
+      radius = 15;
+    }
+
     return (
       <div className='week' >
         <h1 className='week-header' style={{ fontSize: this.state.headerFontSize }} >{this.props.city}</h1>
-        <div className='week-container' >
+        <div className='week-container' style={{borderRadius: radius}} >
           {this.props.data.list.map(function(day) {          
             return (
               <div className='day-container' key={day.pressure} onClick={this.handleClick.bind(this, day)} >

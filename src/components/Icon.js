@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFormat from 'dateformat';
 import funcs from '../util/funcs.js';
+import mobile from 'is-mobile';
 let images = require.context('../images/weather-icons', true);
 
 class Icon extends React.Component {
@@ -17,7 +18,12 @@ class Icon extends React.Component {
     let updatedSize = '';
     
     if (this.props.detailed) {
-      updatedSize = funcs.calcFontSize(0.4, 1/10);
+      if (mobile()) {
+        updatedSize = funcs.calcFontSize(0.4, 1/10);
+      }
+      else {
+        updatedSize = funcs.calcFontSize(0.3, 1/10);
+      }
     }
     else {
       updatedSize = funcs.calcFontSize(0.85 * 0.2, 1/6);
