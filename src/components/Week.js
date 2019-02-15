@@ -41,7 +41,7 @@ class Week extends React.Component {
   }
 
   render() {
-    // Lines up the high and low temps
+    // Lines up the high and low temp
     let margin = this.state.maxFontSize - this.state.minFontSize;
 
     let radius = 0;

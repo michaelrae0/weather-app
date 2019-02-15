@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './Search.js';
+import mobile from 'is-mobile';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Home extends React.Component {
   }
 
   render() {
+
     return (
       <div className='home-container' >
         <h1 className='header' >Enter a City and State</h1>

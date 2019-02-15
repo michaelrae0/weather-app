@@ -8,6 +8,7 @@ import Details from './Details.js';
 let Router = BrowserRouter;
 
 class App extends React.Component {
+  // Routing component
   render() {
     return (
       <Router basename={process.env.PUBLIC_URL}>
